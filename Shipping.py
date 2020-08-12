@@ -50,8 +50,8 @@ how much it will cost to ship their package using Sal’s Shippers.
 
 #Soulution: My programmme: 
 
-def ground_shipping(weight):
-    #it will generate the price for ground shipping based on weight 
+def calculate_ground_shipping(weight):
+    #It will generate the price for ground shipping based on weight. 
     flat_charge=20
     if weight<=2:
       rate_charge= 1.50* weight
@@ -65,7 +65,8 @@ def ground_shipping(weight):
     else:
        rate_charge= 4.75*weight
     return rate_charge + flat_charge
-def drone_shipping(weight):   
+def calculate_drone_shipping(weight):  
+  #It will generate the price for ground shipping based on weight.  
     if weight<=2:
       rate_charge= 4.50*weight
       return rate_charge 
@@ -78,31 +79,44 @@ def drone_shipping(weight):
     else:
       rate_charge= 14.25*weight
       return rate_charge 
-def premimum_groundshipping(weight):
+def generate_premimum_groundshipping(weight):
+  #It will generate the price for ground shipping based on weight.  
     flat_charge= 125
     return flat_charge
 
-def chepeast_price( weight):
-    a= ground_shipping(weight)
-    b= drone_shipping(weight)
-    c= premimum_groundshipping(weight)
+def offer_chepeast_price( weight):
+    a= calculate_ground_shipping(weight)
+    b= calculate_drone_shipping(weight)
+    c= generate_premimum_groundshipping(weight)
     if a<b and a<c:
-      print( "Ground shipping is the cheapest way to ship a "+
-        str(weight), "pound package. It will cost:","$" + str(a))
-    elif b<a and b<c: 
-      print( "Drone shipping is  the cheapest way to ship a "+
-        str(weight), "pound package. It will cost:","$" + str(b))
+        print("Ground shipping is the cheapest way to ship a "+
+        str(weight), "pound package. It will cost:")
+        result= "$"+ str(a)
+        return result
+    elif b<a and b<c:
+        print("Drone shipping is  the cheapest way to ship a "+
+        str(weight), "pound package. It will cost:")
+        result= "$"+ str(b)
+        return result
     elif c<a and c<b:
-      print("Premium Ground Shipping is  the cheapest way to ship a "+
-        str(weight), "pound package. It will cost:","$"+ str(c))
-    '''elif a==b and a<c:  
-      print( "Ground shipping and  Drone_shipping are suitble.",
-           "It will cost:" ,"$" + str(a))
+        print("Premium Ground Shipping is  the cheapest way to ship a "+
+        str(weight), "pound package. It will cost:")
+        result= "$"+ str(c)
+        return result
+    elif a==b and a<c:
+         print("Ground shipping and  Drone_shipping are suitble.",
+           "It will cost:")
+         result= "$"+ str(a)
+         return result
     elif a==c and c<b:
-      print( "Ground shipping and Premium Ground Shipping are suitble."
-           +"It will cost:", "$" + str(a))
-    else: 
-      print( "All 3 methods are suitble. It will cost:", "$" + str(a))'''
+        print("Ground shipping and Premium Ground Shipping are suitble."
+           +"It will cost:")
+        result= "$"+ str(a)
+        return result
+    else:
+        print("All 3 methods are suitble. It will cost:")
+        result= "$"+ str(a)
+        return result
       
 #test
 '''     
@@ -112,8 +126,8 @@ using ground shipping and it will cost $34.40.
 The cheapest way to ship a 41.5 pound package is
 using premium ground shipping and it will cost $125.00. '''
 
-print(chepeast_price(4.8))
-print(chepeast_price(41.50))
+print(offer_chepeast_price(4.8))
+print(offer_chepeast_price(41.50))
 
 
 
