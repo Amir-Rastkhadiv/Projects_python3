@@ -1,1 +1,1 @@
- This is a simple project for learning functions in python 
+These are sets of projects in Python programming language. 
